@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('paginas.welcome');
 });
 
 //recibira una peticion y retornara esto. Si escribo en el navegador localhost:8000/info enviara este mensaje
