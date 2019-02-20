@@ -16,13 +16,19 @@ Route::get('/', function () {
 });
 
 //recibira una peticion y retornara esto. Si escribo en el navegador localhost:8000/info enviara este mensaje
-Route::get('/info', function(){
-	//return "Hola, Informacion del Sistema";
-	return view('paginas/info'); //al usar view asume que esta dentro de resources/view para no poner extencion
-	//return view('paginas.info'); tambien se puede con un punto 
-});
+Route::get('/info', 'PaginaController@info');
+Route::get('/bienvenida/{nombre?}/{apellido?}', 'PaginaController@bienvenida');
+Route::get('/contacto', 'PaginaController@contacto');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');// HomeController es la clase @index es la funcion
 
 
-Route::get('/contacto', function () {
-    return view('paginas.contacto');
+/* otra forma de poner las rutas
+Route::get('/bienvenida/{nombre?}/{apellido?}', function($nombre = null, $apellido = null){//para mandar un nombre por medio de la URL
+	//return $nombre . ' ' . $apellido; //. es para concatenar en php, ? para decir que puede o no recibir el parametro apellido
+	return view('paginas/bienvenida', compact('nombre', 'apellido')) // hace lo mismo que con with, es mas practico 
+	-> with(['nombre_completo' => $nombre . ' ' . $apellido]);// para pasar parametros de url con with 
 });
+*/

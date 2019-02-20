@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Información</title>
-	<meta charset="utf-8">
-</head>
-<body>
-	<h1>Información del Sistema</h1>
-	<p>
-		Gestor de Documentos
-	</p>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Informacion</div>
+
+                <div class="card-body">
+                        Informacion del Sistema
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
