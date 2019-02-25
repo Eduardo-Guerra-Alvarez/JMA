@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -32,8 +32,17 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="{{action('PaginaController@info')}}" class="nav-link">Info</a> <!--Forma de crear un enlace-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('equipo')}}" class="nav-link">Equipo</a><!--Forma facil de crear un enlace-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
+                        </li>
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->

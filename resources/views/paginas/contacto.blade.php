@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Contactos</title>
-	<meta charset="utf-8">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+
 	<h1>Contactos</h1>
-	<p>
+	<p class="lead">
 		Nosotros te contactamos!!!
 	</p>
-</body>
-</html>
+
+@endsection
