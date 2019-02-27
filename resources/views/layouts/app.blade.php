@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="{{action('PaginaController@info')}}" class="nav-link">Info</a> <!--Forma de crear un enlace-->
+                            <a href="{{action('PaginaController@info')}}" class="nav-link">Información</a> <!--Forma de crear un enlace-->
                         </li>
                         <li class="nav-item">
                             <a href="{{route('equipo')}}" class="nav-link">Equipo</a><!--Forma facil de crear un enlace-->
