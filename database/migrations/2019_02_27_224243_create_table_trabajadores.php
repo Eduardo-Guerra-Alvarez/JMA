@@ -16,6 +16,8 @@ class CreateTableTrabajadores extends Migration
         Schema::create('trabajadores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('departamento');
+            $table->string('domicilio');
             $table->string('rfc', 20);//para decir que longitud sea
             $table->timestamps();
         });

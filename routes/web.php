@@ -20,6 +20,7 @@ Route::get('/info', 'PaginaController@info');
 Route::get('/bienvenida/{nombre?}/{apellido?}', 'PaginaController@bienvenida');
 Route::get('/contacto', 'PaginaController@contacto')->name('contacto');
 Route::get('/desarrolladores', 'PaginaController@equipo')->name('equipo');
+Route::get('/obra', 'ObrasController@index')->name('obra.index');
 
 Auth::routes();
 

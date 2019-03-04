@@ -60,6 +60,18 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
+            a:link, a:visited{
+                color: black;
+                background-color: white;
+                padding: 14px 25px;
+                text-decoration: none;
+                text-align: center;
+                display: inline-block;
+            }
+            a:hover{
+                background-color: black;
+                color: white;
+            }
 
             .m-b-md {
                 margin-bottom: 30px;
@@ -93,6 +105,7 @@
                 <div class="links">
                     <a href="info">Información</a>
                     <a href="contacto">Contactos</a>
+                    <a href="{{ route('obra.index')}}">Obras</a>
                     <a href="https://github.com/Eduardo-Guerra-Alvarez/JMA">GitHub</a>
                 </div>
             </div>
