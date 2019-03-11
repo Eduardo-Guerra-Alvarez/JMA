@@ -15,12 +15,17 @@ Route::get('/', function () {
     return view('paginas.welcome');
 });
 
+Route::get('/inicio', function () {
+    return view('inicio');
+});
+
 //recibira una peticion y retornara esto. Si escribo en el navegador localhost:8000/info enviara este mensaje
 Route::get('/info', 'PaginaController@info');
 Route::get('/bienvenida/{nombre?}/{apellido?}', 'PaginaController@bienvenida');
 Route::get('/contacto', 'PaginaController@contacto')->name('contacto');
 Route::get('/desarrolladores', 'PaginaController@equipo')->name('equipo');
 Route::get('/obra', 'ObrasController@index')->name('obra.index');
+
 
 Auth::routes();
 
