@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('paginas.welcome');
 });
@@ -30,7 +32,7 @@ Route::get('/obra', 'ObrasController@index')->name('obra.index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');// HomeController es la clase @index es la funcion
-
+Route::resource('materiales', 'MaterialController');
 
 /* otra forma de poner las rutas
 Route::get('/bienvenida/{nombre?}/{apellido?}', function($nombre = null, $apellido = null){//para mandar un nombre por medio de la URL

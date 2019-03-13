@@ -13,6 +13,7 @@
 			<li><a href="/info">Información</a></li>
 			<li><a href="/obra">Obras</a></li>
 			<li><a href="/contacto">Contactanos</a></li>
+			<li><a href="{{route('materiales.index')}}">Materiales</a></li>
 		</ul>
 	</nav>
 </div>
