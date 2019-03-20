@@ -1,24 +1,31 @@
-@include('layouts.app')
+@extends('layouts.app')
 @section('content')
-
-<h1>Materiales</h1>
 	<div class="card">
 		<div class="col-8 offset-2">
-			<form action="{{ route('materiales.store')}}" method="POST">
+			@if(isset($material))
+				<h1>Editar Materiales</h1>
+				<form action="{{ route('materiales.update', $material->id )}}" method="POST">
+				<input type="hidden" name="_method" value="PATCH">
+			@else
+				<h1>Registro de Materiales</h1>
+				<form action="{{ route('materiales.store')}}" method="POST">
+			@endif
 				@csrf
 			  <div class="form-group">
 			    <label for="nombre">Material</label>
-			    <input type="text" class="form-control" name="nombre" placeholder="Nombre del material">
+			    <input type="text" class="form-control" name="nombre" value="{{ isset($material) ? $material->nombre : '' }}" placeholder="Nombre del material">
 			  </div>
 			  <div class="form-group">
 			    <label for="precio">Precio</label>
-			    <input type="number" class="form-control" name="precio" placeholder="Precio">
+			    <input type="number" class="form-control" name="precio" value="{{ $material->precio ?? '' }}" placeholder="Precio">
 			  </div>
 			  <div class="form-group">
 			    <label for="cantidad">Cantidad</label>
-			    <input type="number" class="form-control" name="cantidad" placeholder="Cantidad">
+			    <input type="number" class="form-control" name="cantidad" value="{{ $material->cantidad ?? '' }}" placeholder="Cantidad">
 			  </div>
 			  <button type="submit" class="btn btn-primary">Enviar</button>
 			</form>
 		</div>
 	</div>
+
+@endsection

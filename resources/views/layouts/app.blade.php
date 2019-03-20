@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'JMA') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,13 +18,14 @@
 
     <!-- Styles -->
      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'JMA') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -42,7 +43,12 @@
                         <li class="nav-item">
                             <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a href="{{route('materiales.create')}}" class="nav-link">Agregar Material</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('materiales.index')}}" class="nav-link">Mostrar Materiales</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

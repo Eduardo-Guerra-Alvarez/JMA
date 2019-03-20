@@ -37,7 +37,6 @@ class MaterialController extends Controller
     public function store(Request $request)
     {
         $dep = new Material();
-        //dd($request->all());
         $dep->nombre = $request->input('nombre');
         $dep->precio = $request->precio;
         $dep->cantidad = $request->cantidad;
@@ -54,7 +53,7 @@ class MaterialController extends Controller
      */
     public function show(Material $material)
     {
-        //
+        return view('materiales.materialShow', compact('material'));
     }
 
     /**
@@ -65,7 +64,8 @@ class MaterialController extends Controller
      */
     public function edit(Material $material)
     {
-        //
+        return view('materiales.materialForm', compact('material'));
+        //despues se pasa a update
     }
 
     /**
@@ -77,7 +77,14 @@ class MaterialController extends Controller
      */
     public function update(Request $request, Material $material)
     {
-        //
+        //el request trae la informacion que se tenga en el formulario
+        //material resive como estaba la informacion
+        $material->nombre = $request->input('nombre');
+        $material->precio = $request->precio;
+        $material->cantidad = $request->cantidad;
+        $material->save();
+
+        return redirect()->route('materiales.show', $material->id); //retoranr a la pagina de index
     }
 
     /**
@@ -88,6 +95,7 @@ class MaterialController extends Controller
      */
     public function destroy(Material $material)
     {
-        //
+        $material->delete();
+        return redirect()->route('materiales.index');//redireccionar a la ruta index
     }
 }
