@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableTrabajadores extends Migration
+class CreateDepartamentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreateTableTrabajadores extends Migration
      */
     public function up()
     {
-        Schema::create('trabajadores', function (Blueprint $table) {
+        Schema::create('departamentos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('IDdepartamento');
-            $table->string('domicilio');
             $table->string('email')->unique();
-            $table->string('rfc', 20);//para decir que longitud sea
             $table->timestamps();
         });
-        //https://laravel.com/docs/5.8/migrations 
-        //para diferentes tipos de datos
     }
 
     /**
@@ -33,6 +28,6 @@ class CreateTableTrabajadores extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trabajadores');
+        Schema::dropIfExists('departamentos');
     }
 }

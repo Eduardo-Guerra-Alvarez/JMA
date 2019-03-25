@@ -36,6 +36,11 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'precio' => 'required|min:1',
+            'cantidad' => 'required|min:1'
+        ]);
         $dep = new Material();
         $dep->nombre = $request->input('nombre');
         $dep->precio = $request->precio;
