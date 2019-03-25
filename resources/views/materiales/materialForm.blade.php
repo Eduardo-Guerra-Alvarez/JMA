@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-	<div class="card">
-		<div class="col-8 offset-2">
+	<div>
+		<div class="col-4 offset-4">
 			@if(isset($material))
 				<h1>Editar Materiales</h1>
 				<form action="{{ route('materiales.update', $material->id )}}" method="POST">
@@ -23,7 +23,7 @@
 			    <label for="cantidad">Cantidad</label>
 			    <input type="number" class="form-control" name="cantidad" value="{{ $material->cantidad ?? '' }}" placeholder="Cantidad">
 			  </div>
-			  <button type="submit" class="btn btn-primary">Enviar</button>
+			  <button type="submit" class="btn btn-primary">Guardar</button>
 			</form>
 		</div>
 	</div>

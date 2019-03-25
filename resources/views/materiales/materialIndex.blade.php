@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>Materiales</h1>
+<h1 class="offset-5">Materiales</h1>
 	<div class="row">
 		<div class="col-8 offset-2">
 			<table class="table ">

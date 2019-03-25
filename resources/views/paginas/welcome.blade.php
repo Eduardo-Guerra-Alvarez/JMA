@@ -19,6 +19,10 @@
                 height: 100vh;
                 margin: 0;
             }
+            body{
+                background-image: url(https://www.chilevalora.cl/wp-content/uploads/2016/08/construccion.jpg);
+                background-size: 100% 100%;
+            }
 
             .full-height {
                 height: 100vh;
@@ -46,13 +50,21 @@
 
             .title {
                 font-size: 84px;
+                color: black;
+                font-style: oblique;
+                font-family: serif;
+                
             }
             .title2{
                 font-size: 60px;
+                color: black;
+                font-style: oblique;
+                font-family: serif;
+                
             }
 
             .links > a {
-                color: #636b6f;
+                color: white;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
