@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trabajador extends Model
 {
+	//protected $fillable = ['nombre', 'domicilio', 'email', 'rfc'];
+	protected $guarded = ['id'];
     public function departamento(){
-    	return $this->belongsTo('Departamento');
+    	return $this->belongsTo('App\Departamento', 'IDdepartamento');
     }
+    protected $table = 'trabajadores'; // para asignar un nombre a la tabla
 }

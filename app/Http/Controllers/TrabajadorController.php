@@ -16,7 +16,7 @@ class TrabajadorController extends Controller
     public function index()
     {
         $trabajadores = Trabajador::all();
-        return view('trabajadores.trabajadorIndex', compact('trabajadores'));
+        return view('trabajadores.trabajadoresIndex', compact('trabajadores'));
     }
 
     /**
@@ -38,15 +38,31 @@ class TrabajadorController extends Controller
      */
     public function store(Request $request)
     {
-        $trabajador = new Trabajador;
-        $trabajador->id = $request->IDdepartamento;
-        $trabajador->IDdepartamento = $request->IDdepartamento;
-        $trabajador->domicilio = $request->domicilio;
-        $trabajador->email = $request->email;
-        $trabajador->rfc = $request->rfc;
-        $trabajador->save();
+        $request->merge(['IDdepartamento' => $request->IDdepartamento]);
+        //$trabajador = new Trabajador($request->all());
+        Trabajador::create($request->all());
 
-        return redirect()->route('trabajadores.create');
+        //$trabajador = new Trabajador([
+        //    'nombre' => $request->nombre,
+        //    'IDdepartamento' => $request->IDdepartamento,
+        //    'domicilio' => $request->domicilio,
+        //    'email' => $request->email,
+        //    'rfc' => $request->rfc
+        //]);
+        //$departamento = Departamento::find($request->departamento)
+        //$departamento = Departamento::find($request->IDdepartamento);
+        //dd($trabajador);
+        //$departamento->trabajadores()->save($trabajador);
+
+        //$trabajador = new Trabajador;
+        //$trabajador->nombre = $request->nombre;
+        //$trabajador->IDdepartamento = $request->IDdepartamento;
+        //$trabajador->domicilio = $request->domicilio;
+        //$trabajador->email = $request->email;
+        //$trabajador->rfc = $request->rfc;
+        //$trabajador->save();
+
+        return redirect()->route('trabajadores.index');
     }
 
     /**
@@ -57,7 +73,7 @@ class TrabajadorController extends Controller
      */
     public function show(Trabajador $trabajador)
     {
-        //
+        
     }
 
     /**
@@ -68,7 +84,8 @@ class TrabajadorController extends Controller
      */
     public function edit(Trabajador $trabajador)
     {
-        //
+        $departamento = Departamento::all();
+        return view('trabajadores.trabajadoresForm', compact('trabajador', 'departamento'));
     }
 
     /**
@@ -80,7 +97,8 @@ class TrabajadorController extends Controller
      */
     public function update(Request $request, Trabajador $trabajador)
     {
-        //
+        $trabajador->update($request->all());
+        return redirect()->route('trabajadores.index');
     }
 
     /**

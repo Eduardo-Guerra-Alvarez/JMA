@@ -2,8 +2,14 @@
 @section('content')
 	<div>
 		<div class="col-4 offset-4">
+			@if(isset($trabajador))
+				<h1>Editar Trabajador</h1>
+				<form action="{{ route('trabajadores.update', $trabajador->id )}}" method="POST">
+				<input type="hidden" name="_method" value="PATCH">
+			@else
 				<h1>Registro de Trabajadores</h1>
 				<form action="{{ route('trabajadores.store')}}" method="POST">
+			@endif
 				@csrf
 			  <div class="form-group">
 			    <label for="nombre">Nombre</label>
@@ -15,10 +21,10 @@
                 @endif
 			  </div>
 			  <div class="form-group">
-			    <label for="departamento">Departamento</label>
+			    <label for="IDdepartamento">Departamento</label>
 			    <select name="IDdepartamento" class="form-control" >
 			    	@foreach($departamento as $depa)
-			    		<option value="{{ $depa->id }}">{{ $depa->nombre}}</option>
+			    		<option value="{{ $depa->id }}" {{ isset($trabajador) && $trabajador->IDdepartamento == $depa->id ? 'selected' : '' }}>{{ $depa->nombre}}</option>
 			    	@endforeach
 			    </select>
 			  </div>

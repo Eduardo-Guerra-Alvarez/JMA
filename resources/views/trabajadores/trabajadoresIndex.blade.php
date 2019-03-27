@@ -13,6 +13,7 @@
 						<th>Domicilio</th>
 						<th>Email</th>
 						<th>RFC</th>
+						<th>Departamento</th>
 								
 					</tr>
 				</thead>
@@ -23,7 +24,12 @@
 							<td>{{ $tra->nombre }}</td>
 							<td>{{ $tra->IDdepartamento }}</td>
 							<td>{{ $tra->domicilio }}</td>
+							<td>{{ $tra->email }}</td>
 							<td>{{ $tra->rfc }}</td>
+							<td>{{ $tra->departamento->nombre }}</td>
+							<td>
+								<a href="{{ route('trabajadores.edit', $tra->id) }}" class="btn btn-warning"> Editar</a>
+							</td>
 						</tr>
 						@endforeach
 				</tbody>
