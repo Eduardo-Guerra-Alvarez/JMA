@@ -15,16 +15,24 @@
                 @endif
 			  </div>
 			  <div class="form-group">
+			    <label for="departamento">Departamento</label>
+			    <select name="IDdepartamento" class="form-control" >
+			    	@foreach($departamento as $depa)
+			    		<option value="{{ $depa->id }}">{{ $depa->nombre}}</option>
+			    	@endforeach
+			    </select>
+			  </div>
+			  <div class="form-group">
 			    <label for="email">Email</label>
 			    <input type="email" class="form-control" name="email" value="" placeholder="Correo">
 			  </div>
-			 <div class="form-group">
-			    <label for="departamento">Departamento</label>
-			    <select name="IDdepartamento" class="form-control" >
-			    	@foreach($depar as $depa)
-			    		<option value="{{ $depa->id }}">{{ $depa->nombre}}></option>
-			    	@endforeach
-			    </select>
+			  <div class="form-group">
+			    <label for="domicilio">Domicilio</label>
+			    <input type="text" class="form-control" name="domicilio" value="" placeholder="Domicilio">
+			  </div>
+			  <div class="form-group">
+			    <label for="rfc">RFC</label>
+			    <input type="text" class="form-control" name="rfc" value="" placeholder="RFC">
 			  </div>
 			  <button type="submit" class="btn btn-primary">Guardar</button>
 			</form>

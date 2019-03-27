@@ -17,6 +17,7 @@ class CreateDepartamentosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }

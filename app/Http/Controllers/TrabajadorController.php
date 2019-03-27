@@ -15,7 +15,8 @@ class TrabajadorController extends Controller
      */
     public function index()
     {
-        //
+        $trabajadores = Trabajador::all();
+        return view('trabajadores.trabajadorIndex', compact('trabajadores'));
     }
 
     /**
@@ -25,8 +26,8 @@ class TrabajadorController extends Controller
      */
     public function create()
     {
-        $depar = Departamento::all();
-        return view('trabajadores.trabajadoresForm', compact('depar'));
+        $departamento = Departamento::all();
+        return view('trabajadores.trabajadoresForm', compact('departamento'));
     }
 
     /**

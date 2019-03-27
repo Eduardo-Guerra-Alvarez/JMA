@@ -14,7 +14,8 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        //
+        $departamentos = Departamento::all();
+        return view('departamentos.departamentoIndex', compact('departamentos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DepartamentoController extends Controller
      */
     public function create()
     {
-        //
+        return view('departamentos.departamentoForm');
     }
 
     /**
@@ -35,7 +36,19 @@ class DepartamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|min:8'
+        ]);
+
+        $dep = new Departamento();
+        $dep->nombre = $request->nombre;
+        $dep->email = $request->email;
+        $dep->password = $request->password;
+        $dep->save();
+
+        return redirect()->route('departamentos.index');
     }
 
     /**

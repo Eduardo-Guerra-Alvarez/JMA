@@ -22,7 +22,7 @@
 				@csrf
 			  <div class="form-group">
 			    <label for="nombre">Material</label>
-			    <input type="text" class="form-control" name="nombre" value="{{ isset($material) ? $material->nombre : '' }} {{ old('nombre') }}" placeholder="Nombre del material">
+			    <input type="text" class="form-control" name="nombre" value="{{ isset($material) ? $material->nombre : '' }} {{ old('nombre') }}" placeholder="Nombre del Material">
 			    @if ($errors->has('nombre'))
                     <span class="alert alert-danger" role="alert">
                             <strong>{{ $errors->first('nombre') }}</strong>
