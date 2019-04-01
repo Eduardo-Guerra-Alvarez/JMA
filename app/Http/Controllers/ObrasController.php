@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\DB; //libreria DB
 use App\Obra;
+use App\Trabajador
 
 class ObrasController extends Controller
 {
@@ -19,7 +20,8 @@ class ObrasController extends Controller
         */
     	//Uso de Modelo
     	$obras = Obra::all();
-    	return view('obras.obrasIndex', compact('obras'));
+        $trabajador = Trabajador::all();
+    	return view('obras.obrasIndex', compact('obras', 'trabajador'));
     }
 
     /**

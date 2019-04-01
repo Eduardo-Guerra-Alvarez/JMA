@@ -26,7 +26,7 @@
 							<td>{{ $tra->domicilio }}</td>
 							<td>{{ $tra->email }}</td>
 							<td>{{ $tra->rfc }}</td>
-							<td>{{ $tra->departamento->nombre }}</td>
+							<td>{{ $tra->departamento->nombre }}</td> <!--({{ $tra->departamento->email}})-->
 							<td>
 								<a href="{{ route('trabajadores.edit', $tra->id) }}" class="btn btn-warning"> Editar</a>
 							</td>

@@ -15,6 +15,7 @@ class CreateObrasTable extends Migration
     {
         Schema::create('obras', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('idTrabajador');
             $table->string('nombre_Obra');
             $table->string('lugar_Obra');
             $table->date('fecha_inicio');

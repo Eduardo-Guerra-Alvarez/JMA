@@ -12,4 +12,10 @@ class Trabajador extends Model
     	return $this->belongsTo('App\Departamento', 'IDdepartamento');
     }
     protected $table = 'trabajadores'; // para asignar un nombre a la tabla
+    public function obras(){
+		return $this->belongsToMany(Obras::class);
+
+		
+	}
+	protected $fillable = ['nombre', 'domicilio', 'rfc'];
 }

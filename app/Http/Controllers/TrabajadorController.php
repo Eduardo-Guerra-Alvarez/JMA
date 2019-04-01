@@ -16,6 +16,10 @@ class TrabajadorController extends Controller
     public function index()
     {
         $trabajadores = Trabajador::all();
+        //$departamento = Departamento::find(1); //ENCONTRAR AL TRABAJADOR DEL DEPARTAMENTO 3
+        //$trabajadores = $departamento->trabajadores()->get(); //TRAER SU CONSULTA
+
+
         return view('trabajadores.trabajadoresIndex', compact('trabajadores'));
     }
 
