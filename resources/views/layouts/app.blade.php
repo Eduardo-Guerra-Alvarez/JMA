@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md bg-faded">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'JMA') }}
+                    <img src="https://ii.ct-stc.com/2/logos/empresas/2018/01/05/a1eb73eadb7d454a959c155550642thumbnail.jpeg" width="150px" height="50px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -44,11 +44,15 @@
                             <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('materiales.create')}}" class="nav-link">Agregar Material</a>
+                            <a href="{{route('trabajadores.index')}}" class="nav-link"> Trabajadores </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('materiales.index')}}" class="nav-link">Mostrar Materiales</a>
+                            <a href="{{route('materiales.index')}}" class="nav-link"> Materiales </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('departamentos.index')}}" class="nav-link"> Departamentos </a>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -66,14 +70,14 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->nombre }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Salir') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

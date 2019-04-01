@@ -26,7 +26,6 @@ Route::get('/info', 'PaginaController@info');
 Route::get('/bienvenida/{nombre?}/{apellido?}', 'PaginaController@bienvenida');
 Route::get('/contacto', 'PaginaController@contacto')->name('contacto');
 Route::get('/desarrolladores', 'PaginaController@equipo')->name('equipo');
-Route::get('/obra', 'ObrasController@index')->name('obra.index');
 
 
 Auth::routes();
@@ -35,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');// HomeController es l
 Route::resource('materiales', 'MaterialController')->parameters(['materiales' => 'material']); //para poder llamar a la variable material y que no lo ponga materiale
 Route::resource('trabajadores', 'TrabajadorController')->parameters(['trabajadores' => 'trabajador']);
 Route::resource('departamentos', 'DepartamentoController');
+Route::resource('obras', 'ObrasController');
 
 /* otra forma de poner las rutas
 Route::get('/bienvenida/{nombre?}/{apellido?}', function($nombre = null, $apellido = null){//para mandar un nombre por medio de la URL

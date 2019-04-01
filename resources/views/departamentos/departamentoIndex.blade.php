@@ -24,6 +24,7 @@
 						@endforeach
 				</tbody>
 			</table>
+			<a href="{{ route('departamentos.create')}}" class="btn btn-outline-primary"> Agregar Departamento</a>
 		</div>
 	</div>
 

@@ -38,6 +38,12 @@ class TrabajadorController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'domicilio' => 'required|max:255',
+            'email' => 'required|max:255',
+            'rfc' => 'required|max:255'
+        ]);
         $request->merge(['IDdepartamento' => $request->IDdepartamento]);
         //$trabajador = new Trabajador($request->all());
         Trabajador::create($request->all());

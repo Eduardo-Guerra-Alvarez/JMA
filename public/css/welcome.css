@@ -1,0 +1,78 @@
+
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+body {
+    //background-image: url(http://construccionesrac.com/wp-content/uploads/2015/07/ab2-3.jpg);
+    background-image: url(https://i.pinimg.com/originals/92/14/32/921432d02ee7e2af7d3963c7d4ff65b3.gif);
+    background-size: 100% 100%;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 500%;
+    color: black;
+    font-style: oblique;
+    font-family: serif;
+    
+}
+.title2{
+    font-size: 400%;
+    color: black;
+    font-style: oblique;
+    font-family: serif;
+    
+}
+
+li > a{
+    color: black; 
+}
+li > a:hover{
+    color: white;
+    background-color: gray;
+}
+.m-b-md {
+    margin-bottom: 30px;
+}
+.esp{
+    padding: 8%;
+}
+@media screen and (max-width: 800px) {
+      .title{
+           font-size: 400%;
+        }
+        .title2{
+            font-size: 300%;
+        }
+        .esp{
+            padding: 0;
+        }
+}

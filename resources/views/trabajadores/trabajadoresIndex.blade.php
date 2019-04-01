@@ -34,6 +34,7 @@
 						@endforeach
 				</tbody>
 			</table>
+			<a href="{{ route('trabajadores.create')}}" class="btn btn-outline-primary"> Agregar Trabajadores</a>
 		</div>
 	</div>
 

@@ -1,96 +1,96 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <title>JMA Mantenimiento & Construcción</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-            body{
-                background-image: url(https://www.chilevalora.cl/wp-content/uploads/2016/08/construccion.jpg);
-                background-size: 100% 100%;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-                color: black;
-                font-style: oblique;
-                font-family: serif;
-                
-            }
-            .title2{
-                font-size: 60px;
-                color: black;
-                font-style: oblique;
-                font-family: serif;
-                
-            }
-
-            .links > a {
-                color: white;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            a:link, a:visited{
-                color: black;
-                background-color: white;
-                padding: 14px 25px;
-                text-decoration: none;
-                text-align: center;
-                display: inline-block;
-            }
-            a:hover{
-                background-color: black;
-                color: white;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/welcome.css') }}">
     </head>
     <body>
+        <nav class="navbar navbar-expand-md bg-faded">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="https://ii.ct-stc.com/2/logos/empresas/2018/01/05/a1eb73eadb7d454a959c155550642thumbnail.jpeg" width="150px" height="50px">
+                </a>
+                <button class="navbar-toggler bg-faded" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="fa fa-fw fa-bars"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="{{action('PaginaController@info')}}" class="nav-link">Información</a>                        
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('equipo')}}" class="nav-link">Equipo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('trabajadores.index')}}" class="nav-link"> Trabajadores </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('materiales.index')}}" class="nav-link"> Materiales </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('departamentos.index')}}" class="nav-link"> Departamentos </a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarte') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->nombre }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Salir') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content" >
+            <div class="esp">
+                
+            </div>
+            <div class="title">
+                JMA
+            </div>
+            <div class="title2 m-b-md">
+                Mantenimiento & Construcción
+            </div>
+        </div>
+        <!--
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -105,22 +105,23 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
+            <div class="content" >
                 <div class="title">
                     JMA
                 </div>
                 <div class="title2 m-b-md">
                     Mantenimiento & Construcción
                 </div>
-
+                
+                
                 <div class="links">
                     <a href="info">Información</a>
                     <a href="contacto">Contactos</a>
-                    <a href="{{ route('obra.index')}}">Obras</a>
+                    <a href="{{ route('obras.index')}}">Obras</a>
                     <a href="https://github.com/Eduardo-Guerra-Alvarez/JMA">GitHub</a>
                 </div>
             </div>
         </div>
+    -->
     </body>
 </html>

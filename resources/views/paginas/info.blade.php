@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Informacion</div>
-
-                <div class="card-body">
-                        Informacion del Sistema
-                </div>
-            </div>
-        </div>
+    <div class="offset-5">
+        <h1 >Informacion</h1>
+        
     </div>
-</div>
+    <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    Esto es una informacion basica de prueba
+                </div>
+                
+            </div>
+            
+        </div>
+    
 @endsection

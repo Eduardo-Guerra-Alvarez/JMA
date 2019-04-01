@@ -29,6 +29,7 @@
 						@endforeach
 				</tbody>
 			</table>
+			<a href="{{ route('materiales.create')}}" class="btn btn-outline-primary">Agregar Material</a>
 		</div>
 	</div>
 

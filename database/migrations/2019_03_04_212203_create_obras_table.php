@@ -17,8 +17,8 @@ class CreateObrasTable extends Migration
             $table->increments('id');
             $table->string('nombre_Obra');
             $table->string('lugar_Obra');
-            $table->dateTime('fecha_inicio');
-            $table->dateTime('fecha_termino');
+            $table->date('fecha_inicio');
+            $table->date('fecha_termino');
             $table->timestamps();
 
             //$table->foreign('user_id')->references('id')->on('trabajadores');
