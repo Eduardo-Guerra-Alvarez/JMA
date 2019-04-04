@@ -38,10 +38,10 @@
                             <a href="{{action('PaginaController@info')}}" class="nav-link">Información</a> <!--Forma de crear un enlace-->
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('equipo')}}" class="nav-link">Equipo</a><!--Forma facil de crear un enlace-->
+                            <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
+                            <a href="{{route('obras.index')}}" class="nav-link">Obras</a><!--Forma facil de crear un enlace-->
                         </li>
                         <li class="nav-item">
                             <a href="{{route('trabajadores.index')}}" class="nav-link"> Trabajadores </a>

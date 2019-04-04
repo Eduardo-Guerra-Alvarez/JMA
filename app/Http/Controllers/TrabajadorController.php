@@ -48,8 +48,7 @@ class TrabajadorController extends Controller
             'email' => 'required|max:255',
             'rfc' => 'required|max:255'
         ]);
-        $request->merge(['IDdepartamento' => $request->IDdepartamento]);
-        //$trabajador = new Trabajador($request->all());
+        $request->merge(['departamento_id' => $request->departamento_id]);
         Trabajador::create($request->all());
 
         //$trabajador = new Trabajador([

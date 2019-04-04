@@ -15,14 +15,26 @@ class CreateObrasTable extends Migration
     {
         Schema::create('obras', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('idTrabajador');
             $table->string('nombre_Obra');
             $table->string('lugar_Obra');
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
             $table->timestamps();
 
-            //$table->foreign('user_id')->references('id')->on('trabajadores');
+        });
+        
+        Schema::create('obra_trabajador', function (Blueprint $table) {
+            $table->unsignedInteger('trabajador_id');
+            $table->unsignedInteger('obra_id');
+
+            $table->foreign('trabajador_id')
+            ->references('id')
+            ->on('trabajadores')
+            ->onDelete('cascade');
+
+            $table->foreign('obra_id')
+            ->references('id')
+            ->on('obras');
         });
     }
 
@@ -33,6 +45,7 @@ class CreateObrasTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('obra_trabajador');
         Schema::dropIfExists('obras');
     }
 }

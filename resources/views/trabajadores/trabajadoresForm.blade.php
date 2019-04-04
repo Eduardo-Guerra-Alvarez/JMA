@@ -30,10 +30,10 @@
                 @endif
 			  </div>
 			  <div class="form-group">
-			    <label for="IDdepartamento">Departamento</label>
-			    <select name="IDdepartamento" class="form-control" >
+			    <label for="departamento_id">Departamento</label>
+			    <select name="departamento_id" class="form-control" >
 			    	@foreach($departamento as $depa)
-			    		<option value="{{ $depa->id }}" {{ isset($trabajador) && $trabajador->IDdepartamento == $depa->id ? 'selected' : '' }}>{{ $depa->nombre}}</option>
+			    		<option value="{{ $depa->id }}" {{ isset($trabajador) && $trabajador->departamento_id == $depa->id ? 'selected' : '' }}>{{ $depa->nombre}}</option>
 			    	@endforeach
 			    </select>
 			  </div>

@@ -9,13 +9,16 @@ class Trabajador extends Model
 	//protected $fillable = ['nombre', 'domicilio', 'email', 'rfc'];
 	protected $guarded = ['id'];
     public function departamento(){
-    	return $this->belongsTo('App\Departamento', 'IDdepartamento');
+    	return $this->belongsTo('App\Departamento', 'departamento_id');
     }
+
+
     protected $table = 'trabajadores'; // para asignar un nombre a la tabla
+    
     public function obras(){
-		return $this->belongsToMany(Obras::class);
+		return $this->belongsToMany(Obra::class);
 
 		
 	}
-	protected $fillable = ['nombre', 'domicilio', 'rfc'];
+	protected $fillable = ['nombre', 'departamento_id', 'domicilio', 'email', 'rfc'];
 }

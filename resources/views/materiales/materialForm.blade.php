@@ -31,7 +31,7 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="precio">Precio</label>
-			    <input type="number" class="form-control" name="precio" value="{{ $material->precio ?? '' }} {{ old('precio') }}" placeholder="Precio">
+			    <input type="number" class="form-control" name="precio" value="{{ $material->precio ?? '' }} {{ old('precio') }}" placeholder="Precio" step="any">
 			  </div>
 			  <div class="form-group">
 			    <label for="cantidad">Cantidad</label>

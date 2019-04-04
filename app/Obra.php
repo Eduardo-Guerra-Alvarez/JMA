@@ -8,6 +8,7 @@ class Obra extends Model
 {
     //protected $table = 'obras';
     public function trabajadores(){
-		return $this->belongsToMany(Trabajadores::class);
+		return $this->belongsToMany(Trabajador::class);
 	}
+	protected $fillable = ['nombre_Obra', 'lugar_Obra', 'fecha_inicio', 'fecha_termino'];
 }

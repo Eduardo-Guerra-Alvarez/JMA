@@ -14,11 +14,18 @@ class TrabajadorTableSeeder extends Seeder
     {
     	factory(App\Trabajador::class, 20)->create();
 
-        DB::table('trabajadores')->insert(['nombre' => 'Juan', 'domicilio' => 'Jose Lopez Portillo', 'rfc' => 'AL123']);
+        DB::table('trabajadores')->insert([
+            'nombre' => 'Juan', 
+            'departamento_id' => '1',
+            'domicilio' => 'Jose Lopez Portillo', 
+            'email' => 'Juan@gmail.com',
+            'rfc' => 'AL123']);
 
-        Trabajador::create([
+        App\Trabajador::create([
         	'nombre' => 'Pedro',
+            'departamento_id' => '2',
         	'domicilio' => 'Emiliano Zapata',
+            'email' => 'Pedro@gmail.com',
         	'rfc' => 'aaa123'
         ]);
     }

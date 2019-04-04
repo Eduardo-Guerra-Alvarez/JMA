@@ -26,6 +26,7 @@
 					@endforeach
 				</tbody>
 			</table>
+			<a href="{{ route('obras.create')}}" class="btn btn-outline-primary"> Agregar Obras</a>
 		</div>
 	</div>
 	

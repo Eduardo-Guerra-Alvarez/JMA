@@ -22,7 +22,7 @@
 						<tr>
 							<td>{{ $tra->id }}</td>
 							<td>{{ $tra->nombre }}</td>
-							<td>{{ $tra->IDdepartamento }}</td>
+							<td>{{ $tra->departamento_id }}</td>
 							<td>{{ $tra->domicilio }}</td>
 							<td>{{ $tra->email }}</td>
 							<td>{{ $tra->rfc }}</td>

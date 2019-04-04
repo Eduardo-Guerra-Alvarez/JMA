@@ -29,6 +29,14 @@
 			    <input type="text" class="form-control" name="lugar_Obra" value="" placeholder="Lugar de la Obra">
 			  </div>
 			  <div class="form-group">
+			    <label for="trabajador_id">Trabajadores</label>
+			    <select name="trabajador_id[]" class="form-control" multiple>
+			    	@foreach($trabajadores as $traba)
+			    		<option value="{{ $traba->id }}" {{ isset($obra) && $obra->trabajador_id == $traba->id ? 'selected' : '' }}>{{ $traba->nombre}}</option>
+			    	@endforeach
+			    </select>
+			  </div>
+			  <div class="form-group">
 			    <label for="fecha_inicio">Fecha Inicio</label>
 			    <input type="date" class="form-control" name="fecha_inicio" value="" placeholder="Fecha de Inicio">
 			  </div>

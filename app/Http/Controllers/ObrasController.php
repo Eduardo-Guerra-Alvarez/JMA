@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\DB; //libreria DB
 use App\Obra;
-use App\Trabajador
+use App\Trabajador;
 
 class ObrasController extends Controller
 {
@@ -20,8 +20,7 @@ class ObrasController extends Controller
         */
     	//Uso de Modelo
     	$obras = Obra::all();
-        $trabajador = Trabajador::all();
-    	return view('obras.obrasIndex', compact('obras', 'trabajador'));
+    	return view('obras.obrasIndex', compact('obras'));
     }
 
     /**
@@ -31,7 +30,8 @@ class ObrasController extends Controller
      */
     public function create()
     {
-        return view('obras.obrasForm');
+        $trabajadores = Trabajador::all();
+        return view('obras.obrasForm', compact('trabajadores'));
     }
 
     /**
@@ -42,13 +42,15 @@ class ObrasController extends Controller
      */
     public function store(Request $request)
     {
+        $obra = Obra::create($request->except('trabajador_id'));
+        $obra->trabajadores()->attach($request->trabajador_id);
 
-        $dep = new Obra();
+        /*$dep = new Obra();
         $dep->nombre_Obra = $request->nombre_Obra;
         $dep->lugar_Obra = $request->lugar_Obra;
         $dep->fecha_inicio = $request->fecha_inicio;
         $dep->fecha_termino = $request->fecha_termino;
-        $dep->save();
+        $dep->save();*/
 
         return redirect()->route('obras.index');
     }
