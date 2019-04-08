@@ -24,17 +24,20 @@ class CreateObrasTable extends Migration
         });
         
         Schema::create('obra_trabajador', function (Blueprint $table) {
-            $table->unsignedInteger('trabajador_id');
             $table->unsignedInteger('obra_id');
-
-            $table->foreign('trabajador_id')
-            ->references('id')
-            ->on('trabajadores')
-            ->onDelete('cascade');
+            $table->unsignedInteger('trabajador_id');
 
             $table->foreign('obra_id')
             ->references('id')
             ->on('obras');
+            ->onDelete('cascade');
+
+            $table->foreign('trabajador_id')
+            ->references('id')
+            ->on('trabajadores')
+            
+
+            
         });
     }
 

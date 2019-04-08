@@ -1,9 +1,22 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="offset-5">Materiales</h1>
+<div class="container">
+  <div class="row">
+  	<div class="col">
+    </div>
+    <div class="col">
+      <h1 >Materiales</h1>
+    </div>
+    <div class="col">
+      <a href="{{ route('materiales.create')}}" class="btn btn-outline-primary">Agregar Material</a>
+    </div>
+  </div>
+</div>
 	<div class="row">
 		<div class="col-8 offset-2">
+			
+			@include('partials.mensajes')
 			<table class="table ">
 				<thead class="table-dark">
 					<tr >
@@ -29,7 +42,6 @@
 						@endforeach
 				</tbody>
 			</table>
-			<a href="{{ route('materiales.create')}}" class="btn btn-outline-primary">Agregar Material</a>
 		</div>
 	</div>
 

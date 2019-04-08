@@ -34,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');// HomeController es l
 Route::resource('materiales', 'MaterialController')->parameters(['materiales' => 'material']); //para poder llamar a la variable material y que no lo ponga materiale
 Route::resource('trabajadores', 'TrabajadorController')->parameters(['trabajadores' => 'trabajador']);
 Route::resource('departamentos', 'DepartamentoController');
+Route::post('obras/elimina-trabajador/{obra}', 'ObrasController@eliminaTrabajador')->name('obras.eliminaTrabajador');
 Route::resource('obras', 'ObrasController');
 
 /* otra forma de poner las rutas

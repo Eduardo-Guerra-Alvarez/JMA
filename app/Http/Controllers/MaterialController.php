@@ -41,13 +41,19 @@ class MaterialController extends Controller
             'precio' => 'required|min:1',
             'cantidad' => 'required|min:1'
         ]);
+        /*
         $dep = new Material();
         $dep->nombre = $request->input('nombre');
         $dep->precio = $request->precio;
         $dep->cantidad = $request->cantidad;
         $dep->save();
-
-        return redirect()->route('materiales.index');
+        */
+        Material::create($request->all());
+        return redirect()->route('materiales.index')
+        ->with([
+                'agregado' => 'Material agregado',
+                'alert-class' => 'alert-info',
+            ]);
     }
 
     /**
@@ -82,13 +88,20 @@ class MaterialController extends Controller
      */
     public function update(Request $request, Material $material)
     {
-        //el request trae la informacion que se tenga en el formulario
-        //material resive como estaba la informacion
+        /*
+        el request trae la informacion que se tenga en el formulario
+        material resive como estaba la informacion
         $material->nombre = $request->input('nombre');
         $material->precio = $request->precio;
         $material->cantidad = $request->cantidad;
         $material->save();
-
+        */
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'precio' => 'required|min:1',
+            'cantidad' => 'required|min:1'
+        ]);
+        $material->update($request->all());
         return redirect()->route('materiales.show', $material->id); //retoranr a la pagina de index
     }
 
@@ -101,6 +114,11 @@ class MaterialController extends Controller
     public function destroy(Material $material)
     {
         $material->delete();
-        return redirect()->route('materiales.index');//redireccionar a la ruta index
+        return redirect()->route('materiales.index')
+            ->with([
+                'alerta' => 'Material eliminado',
+                'alert-class' => 'alert-warning',
+            ]);
+            //redireccionar a la ruta index
     }
 }

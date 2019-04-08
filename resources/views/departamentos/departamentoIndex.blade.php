@@ -1,7 +1,22 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="offset-5">Departamentos</h1>
+<div class="container">
+  <div class="row">
+  	<div class="col">
+    </div>
+    <div class="col">
+    </div>
+    <div class="col">
+      <h1 >Departamentos</h1>
+    </div>
+    <div class="col">
+      <a href="{{ route('departamentos.create')}}" class="btn btn-outline-primary"> Agregar Departamento</a>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
 	<div class="row">
 		<div class="col-4 offset-4">
 			<table class="table ">
@@ -24,7 +39,6 @@
 						@endforeach
 				</tbody>
 			</table>
-			<a href="{{ route('departamentos.create')}}" class="btn btn-outline-primary"> Agregar Departamento</a>
 		</div>
 	</div>
 

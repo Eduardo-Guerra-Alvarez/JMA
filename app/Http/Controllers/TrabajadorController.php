@@ -106,6 +106,12 @@ class TrabajadorController extends Controller
      */
     public function update(Request $request, Trabajador $trabajador)
     {
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'domicilio' => 'required|max:255',
+            'email' => 'required|max:255',
+            'rfc' => 'required|max:255'
+        ]);
         $trabajador->update($request->all());
         return redirect()->route('trabajadores.index');
     }
@@ -118,6 +124,7 @@ class TrabajadorController extends Controller
      */
     public function destroy(Trabajador $trabajador)
     {
-        //
+        $trabajador->delete();
+        return redirect()->route('trabajadores.index');
     }
 }

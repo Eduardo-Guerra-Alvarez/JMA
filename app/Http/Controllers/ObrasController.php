@@ -42,8 +42,8 @@ class ObrasController extends Controller
      */
     public function store(Request $request)
     {
-        $obra = Obra::create($request->except('trabajador_id'));
-        $obra->trabajadores()->attach($request->trabajador_id);
+        $obra = Obra::create($request->except('trabajadores_id'));
+        $obra->trabajadores()->attach($request->trabajadores_id);
 
         /*$dep = new Obra();
         $dep->nombre_Obra = $request->nombre_Obra;
@@ -63,7 +63,7 @@ class ObrasController extends Controller
      */
     public function show(Obra $obra)
     {
-        //
+        return view('obras.obrasShow', compact('obra'));
     }
 
     /**
@@ -74,7 +74,8 @@ class ObrasController extends Controller
      */
     public function edit(Obra $obra)
     {
-        //
+        $trabajadores = Trabajador::all();
+        return view('obras.obrasForm', compact('obra', 'trabajadores'));
     }
 
     /**
@@ -84,9 +85,15 @@ class ObrasController extends Controller
      * @param  \App\Obra  $Obra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Obra $Obra)
+    public function update(Request $request, Obra $obra)
     {
-        //
+        //Actualiza la obra
+        $obra->update($request->except('trabajadores_id'));
+
+        //sincroniza los trabajadores relacionados con la obra
+        $obra->trabajadores()->sync($request->trabajadores_id);
+
+        return redirect()->route('obras.index');
     }
 
     /**
@@ -97,6 +104,14 @@ class ObrasController extends Controller
      */
     public function destroy(Obra $obra)
     {
-        //
+        $obra->trabajadores()->detach(); //de este modelo con esta relacion quita todas las relaciones
+        $obra->delete();
+        return redirect()->route('obras.index');
+
+    }
+    public function eliminaTrabajador(Request $request, Obra $obra)
+    {
+        $obra->trabajadores()->detach($request->trabajador_id);
+        return redirect()->route('obras.show', $obra->id);
     }
 }

@@ -22,20 +22,15 @@
 				@csrf
 			  <div class="form-group">
 			    <label for="nombre">Material</label>
-			    <input type="text" class="form-control" name="nombre" value="{{ isset($material) ? $material->nombre : '' }} {{ old('nombre') }}" placeholder="Nombre del Material">
-			    @if ($errors->has('nombre'))
-                    <span class="alert alert-danger" role="alert">
-                            <strong>{{ $errors->first('nombre') }}</strong>
-                    </span>
-                @endif
+			    <input type="text" class="form-control" name="nombre" value="{{ isset($material) ? $material->nombre : '' }}" placeholder="Nombre del Material">
 			  </div>
 			  <div class="form-group">
 			    <label for="precio">Precio</label>
-			    <input type="number" class="form-control" name="precio" value="{{ $material->precio ?? '' }} {{ old('precio') }}" placeholder="Precio" step="any">
+			    <input type="number" class="form-control" name="precio" value="{{ isset($material) ? $material->precio : '' }}" placeholder="Precio" step="any">
 			  </div>
 			  <div class="form-group">
 			    <label for="cantidad">Cantidad</label>
-			    <input type="number" class="form-control" name="cantidad" value="{{ $material->cantidad ?? '' }} {{ old('cantidad') }}" placeholder="Cantidad">
+			    <input type="number" class="form-control" name="cantidad" value="{{ isset($material) ? $material->cantidad : '' }}" placeholder="Cantidad">
 			  </div>
 			  <button type="submit" class="btn btn-primary">Guardar</button>
 			</form>

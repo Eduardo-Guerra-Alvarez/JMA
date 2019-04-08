@@ -11,17 +11,27 @@
 						<th>Nombre</th>
 						<th>Lugar</th>
 						<th>Fecha Inicio</th>
-						<th>Fecha Termino</th>		
+						<th>Fecha Termino</th>
+						<th>Trabajadores</th>		
 					</tr>
 				</thead>
 				<tbody>
 					@foreach($obras as $obra)
 						<tr>
-							<td>{{$obra->id}}</td>
+							<td>
+								<a href="{{ route('obras.show', $obra->id)}}" class="btn btn-dark btn-sm">{{$obra->id}}</a>
+							</td>
 							<td>{{$obra->nombre_Obra}}</td>
 							<td>{{$obra->lugar_Obra}}</td>
 							<td>{{$obra->fecha_inicio}}</td>
 							<td>{{$obra->fecha_termino}}</td>
+							<td>
+								<ul>
+									@foreach($obra->trabajadores as $trabajador)
+										<li>{{ $trabajador->nombre }}</li><!--Para mostrar a todos los trabajadores-->
+									@endforeach
+								</ul>
+							</td>
 						</tr>
 					@endforeach
 				</tbody>
