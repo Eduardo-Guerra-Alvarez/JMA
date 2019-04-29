@@ -71,7 +71,11 @@ class TrabajadorController extends Controller
         //$trabajador->rfc = $request->rfc;
         //$trabajador->save();
 
-        return redirect()->route('trabajadores.index');
+        return redirect()->route('trabajadores.index')
+        ->with([
+                'agregado' => 'trabajador agregado',
+                'alert-class' => 'alert-info',
+            ]);
     }
 
     /**
@@ -125,6 +129,10 @@ class TrabajadorController extends Controller
     public function destroy(Trabajador $trabajador)
     {
         $trabajador->delete();
-        return redirect()->route('trabajadores.index');
+        return redirect()->route('trabajadores.index')
+        ->with([
+                'alerta' => 'Trabajador eliminado',
+                'alert-class' => 'alert-danger',
+            ]);
     }
 }

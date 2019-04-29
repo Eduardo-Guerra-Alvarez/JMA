@@ -42,13 +42,19 @@ class DepartamentoController extends Controller
             'password' => 'required|min:8'
         ]);
 
+        /*
         $dep = new Departamento();
         $dep->nombre = $request->nombre;
         $dep->email = $request->email;
         $dep->password = $request->password;
         $dep->save();
-
-        return redirect()->route('departamentos.index');
+        */
+        Departamento::create($request->all());
+        return redirect()->route('departamentos.index')
+        ->with([
+                'agregado' => 'Departamento agregado',
+                'alert-class' => 'alert-info',
+            ]);
     }
 
     /**
@@ -70,7 +76,7 @@ class DepartamentoController extends Controller
      */
     public function edit(Departamento $departamento)
     {
-        //
+        return view('departamentos.departamentoForm', compact('departamento'));
     }
 
     /**
@@ -82,7 +88,14 @@ class DepartamentoController extends Controller
      */
     public function update(Request $request, Departamento $departamento)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|min:8'
+        ]);
+
+        $departamento->update($request->all());
+        return redirect()->route('departamentos.index');
     }
 
     /**

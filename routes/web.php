@@ -34,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');// HomeController es l
 Route::resource('materiales', 'MaterialController')->parameters(['materiales' => 'material']); //para poder llamar a la variable material y que no lo ponga materiale
 Route::resource('trabajadores', 'TrabajadorController')->parameters(['trabajadores' => 'trabajador']);
 Route::resource('departamentos', 'DepartamentoController');
+//->middleware('auth'); 	SE USA PARA QUE NO PUEDA ENTRAR A MENOS QUE ESTE REGISTRADO
 Route::post('obras/elimina-trabajador/{obra}', 'ObrasController@eliminaTrabajador')->name('obras.eliminaTrabajador');
 Route::resource('obras', 'ObrasController');
 

@@ -18,7 +18,8 @@
   </div>
 </div>
 	<div class="row">
-		<div class="col-4 offset-4">
+		<div class="col-6 offset-3">
+			@include('partials.mensajes')
 			<table class="table ">
 				<thead class="table-dark">
 					<tr >
@@ -26,6 +27,7 @@
 						<th>Nombre</th>
 						<th>Email</th>
 						<th>Password</th>
+						<th>Accion</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,6 +37,9 @@
 							<td>{{ $depa->nombre }}</td>
 							<td>{{ $depa->email }}</td>
 							<td>{{ $depa->password }}</td>
+							<td>
+								<a href="{{ route('departamentos.edit', $depa->id) }}" class="btn btn-warning">Editar</a>
+							</td>
 						</tr>
 						@endforeach
 				</tbody>

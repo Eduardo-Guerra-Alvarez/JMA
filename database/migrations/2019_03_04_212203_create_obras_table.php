@@ -29,15 +29,12 @@ class CreateObrasTable extends Migration
 
             $table->foreign('obra_id')
             ->references('id')
-            ->on('obras');
+            ->on('obras')
             ->onDelete('cascade');
 
             $table->foreign('trabajador_id')
             ->references('id')
-            ->on('trabajadores')
-            
-
-            
+            ->on('trabajadores');
         });
     }
 

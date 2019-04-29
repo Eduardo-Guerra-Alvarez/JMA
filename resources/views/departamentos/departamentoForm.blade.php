@@ -11,13 +11,18 @@
 			        </ul>
 			    </div>
 			@endif
-			
+			@if(isset($departamento))
+				<h1>Editar Departamento</h1>
+				<form action="{{ route('departamentos.update', $departamento->id )}}" method="POST">
+				<input type="hidden" name="_method" value="PATCH">
+			@else
 				<h1>Registro de Departamentos</h1>
 				<form action="{{ route('departamentos.store')}}" method="POST">
+			@endif
 				@csrf
 			  <div class="form-group">
 			    <label for="nombre">Departamento</label>
-			    <input type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" placeholder="Nombre del Departamento">
+			    <input type="text" class="form-control" name="nombre" value="{{ isset($departamento) ? $departamento->nombre : '' }} {{ old('nombre') }}" placeholder="Nombre del Departamento">
 			    @if ($errors->has('nombre'))
                     <div class="alert alert-danger" role="alert">
                             <strong>{{ $errors->first('nombre') }}</strong>
@@ -26,7 +31,7 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="email">Email</label>
-			    <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Correo Electronico">
+			    <input type="email" class="form-control" name="email" value="{{ isset($departamento) ? $departamento->email : '' }}{{ old('email') }}" placeholder="Correo Electronico">
 			    @if ($errors->has('nombre'))
                     <div class="alert alert-danger" role="alert">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -35,7 +40,7 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
-			    <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password">
+			    <input type="password" class="form-control" name="password" value="{{ isset($departamento) ? $departamento->password : '' }}{{ old('password') }}" placeholder="Password">
 			    @if ($errors->has('nombre'))
                     <div class="alert alert-danger" role="alert">
                             <strong>{{ $errors->first('password') }}</strong>

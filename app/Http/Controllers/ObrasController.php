@@ -3,12 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 //use Illuminate\Support\Facades\DB; //libreria DB
 use App\Obra;
 use App\Trabajador;
 
 class ObrasController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth')->except('index', 'show');
+        $this->middleware('admin')->only('create', 'store', 'edit' ,'update', 'destroy');
+    }
+
+
     public function index(){
     	/* Consulta DB
     	*  $obras = DB::table('obras')->get();
@@ -74,6 +82,12 @@ class ObrasController extends Controller
      */
     public function edit(Obra $obra)
     {
+        if (Gate::denies('editar-obra', $obra)) {
+            return redirect()->back()
+            ->with(['mensaje' => 'No es tu obra']);
+        }
+
+
         $trabajadores = Trabajador::all();
         return view('obras.obrasForm', compact('obra', 'trabajadores'));
     }

@@ -23,12 +23,17 @@
 							<td>{{$obra->fecha_inicio}}</td>
 							<td>{{$obra->fecha_termino}}</td>
 							<td>
-								<a href="{{ route('obras.edit', $obra->id)}}" class="btn btn-sm btn-warning">Editar</a>
-								<form action="{{ route('obras.destroy', $obra->id ) }}" method="POST">
-									<input type="hidden" name="_method" value="DELETE">
-									@csrf
-									<button type="submit" class="btn btn-sm btn-danger">Borrar</button>
-								</form>
+								@can('update', $obra)
+									<a href="{{ route('obras.edit', $obra->id)}}" class="btn btn-sm btn-warning">Editar</a>
+								@endcan
+
+								@can('delete', $obra)
+									<form action="{{ route('obras.destroy', $obra->id ) }}" method="POST">
+										<input type="hidden" name="_method" value="DELETE">
+										@csrf
+										<button type="submit" class="btn btn-sm btn-danger">Borrar</button>
+									</form>
+								@endcan
 							</td>
 						</tr>
 				</tbody>
@@ -45,11 +50,13 @@
 								{{ $trabajador->nombre}} <!--Para mostrar a todos los trabajadores-->
 							</td>
 							<td>
+								@can('delete', $obra)
 								<form action="{{ route('obras.eliminaTrabajador', $obra->id ) }}" method="POST">
 									<input type="hidden" name="trabajador_id" value="{{ $trabajador->id}}">
 									@csrf
 									<button type="submit" class="btn btn-sm btn-danger">Borrar</button>
 								</form>
+								@endcan
 							</td>
 							@endforeach
 						</tr>
