@@ -12,7 +12,7 @@ class ObrasController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth')->except('index', 'show');
+        $this->middleware('auth')->except('index', 'show');
         $this->middleware('admin')->only('create', 'store', 'edit' ,'update', 'destroy');
     }
 
@@ -27,7 +27,9 @@ class ObrasController extends Controller
     	*  dd($obras);mueve y arroja el resultado
         */
     	//Uso de Modelo
-    	$obras = Obra::all();
+    	//$obras = Obra::all();
+
+        $obras = Obra::paginate(5);
     	return view('obras.obrasIndex', compact('obras'));
     }
 

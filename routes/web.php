@@ -38,6 +38,15 @@ Route::resource('departamentos', 'DepartamentoController');
 Route::post('obras/elimina-trabajador/{obra}', 'ObrasController@eliminaTrabajador')->name('obras.eliminaTrabajador');
 Route::resource('obras', 'ObrasController');
 
+//Rutas para carga, descarta y eliminación de archivos
+Route::resource('archivo', 'ArchivoController', ['except' => ['create', 'edit', 'update']]);
+
+
+
+
+
+
+
 /* otra forma de poner las rutas
 Route::get('/bienvenida/{nombre?}/{apellido?}', function($nombre = null, $apellido = null){//para mandar un nombre por medio de la URL
 	//return $nombre . ' ' . $apellido; //. es para concatenar en php, ? para decir que puede o no recibir el parametro apellido

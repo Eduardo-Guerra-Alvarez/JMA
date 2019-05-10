@@ -30,7 +30,7 @@ class LoginController extends Controller
     protected function redirectTo()
     {
         session(['apodo' => 'Lalo']);
-        return 'trabajadores'; //redireccionar a la pagina obras
+        return 'trabajadores'; //redireccionar a la pagina trabajadores
     }
 
     /**

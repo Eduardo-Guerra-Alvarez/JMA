@@ -15,7 +15,14 @@ class TrabajadorController extends Controller
      */
     public function index()
     {
-        $trabajadores = Trabajador::all();
+        //$trabajadores = Trabajador::all();
+
+        /*
+            Metodo para generar una paginacion, mostraria solo 5 trabajadores
+        */
+        $trabajadores = Trabajador::paginate(5); 
+
+
         //$departamento = Departamento::find(1); //ENCONTRAR AL TRABAJADOR DEL DEPARTAMENTO 3
         //$trabajadores = $departamento->trabajadores()->get(); //TRAER SU CONSULTA
 

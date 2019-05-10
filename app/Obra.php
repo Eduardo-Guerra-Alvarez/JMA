@@ -11,4 +11,8 @@ class Obra extends Model
 		return $this->belongsToMany(Trabajador::class);
 	}
 	protected $fillable = ['nombre_Obra', 'lugar_Obra', 'fecha_inicio', 'fecha_termino'];
+
+	public function archivos(){
+		return $this->morphMany('App\Archivo', 'modelo');
+	}
 }

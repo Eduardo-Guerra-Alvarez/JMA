@@ -13,6 +13,8 @@
 	<div class="row">
 		<div class="col-8 offset-2">
 			@include('partials.mensajes')
+
+			{{ $trabajadores->links()}}
 			<table class="table ">
 				<thead class="table-dark">
 					<tr >

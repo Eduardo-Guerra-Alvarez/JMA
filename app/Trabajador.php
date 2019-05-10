@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trabajador extends Model
 {
-	//protected $fillable = ['nombre', 'domicilio', 'email', 'rfc'];
 	protected $guarded = ['id'];
     public function departamento(){
     	return $this->belongsTo('App\Departamento', 'departamento_id');
@@ -21,4 +20,19 @@ class Trabajador extends Model
 		
 	}
 	protected $fillable = ['nombre', 'departamento_id', 'domicilio', 'email', 'rfc'];
+
+	//Convertir los nombres del trabajador en Mayusculas
+	//Con get Obtiene los datos y los transforma
+
+	public function getRfcAttribute($rfc)
+    {
+        return strtoupper($rfc);
+    }
+
+    //Al agregar un dato automaticamente lo transforma a minuscula
+
+	/*public function setNombreAttribute($nombre)
+    {
+        $this->attributes['nombre'] = strtolower($nombre);
+    }*/
 }

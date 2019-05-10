@@ -4,6 +4,7 @@
 	<h1 class="offset-5">Obras</h1>
 	<div class="row">
 		<div class="col-8 offset-2">
+			{{ $obras->links() }}
 			<table class="table ">
 				<thead class="table-dark">
 					<tr >
@@ -36,6 +37,7 @@
 					@endforeach
 				</tbody>
 			</table>
+			{{ $obras->links() }}
 			<a href="{{ route('obras.create')}}" class="btn btn-outline-primary"> Agregar Obras</a>
 		</div>
 	</div>
