@@ -20,6 +20,7 @@ class CreateObrasTable extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
             $table->timestamps();
+            $table->softDeletes();
 
         });
         

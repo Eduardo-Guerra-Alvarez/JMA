@@ -30,10 +30,10 @@
                             <a href="{{action('PaginaController@info')}}" class="nav-link">Información</a>                        
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('equipo')}}" class="nav-link">Equipo</a>
+                            <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
+                            <a href="{{route('obras.index')}}" class="nav-link">Obras </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('trabajadores.index')}}" class="nav-link"> Trabajadores </a>

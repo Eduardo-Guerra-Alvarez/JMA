@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md bg-faded">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="https://ii.ct-stc.com/2/logos/empresas/2018/01/05/a1eb73eadb7d454a959c155550642thumbnail.jpeg" width="150px" height="50px">
+                    <img src="{{asset('JMAimagen.jpeg')}}" width="150px" height="50px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

@@ -24,8 +24,8 @@
 							</td>
 							<td>{{$obra->nombre_Obra}}</td>
 							<td>{{$obra->lugar_Obra}}</td>
-							<td>{{$obra->fecha_inicio}}</td>
-							<td>{{$obra->fecha_termino}}</td>
+							<td>{{$obra->fecha_inicio->format('d/m/Y')}}</td>
+							<td>{{$obra->fecha_termino->format('d/m/Y')}}</td>
 							<td>
 								<ul>
 									@foreach($obra->trabajadores as $trabajador)
