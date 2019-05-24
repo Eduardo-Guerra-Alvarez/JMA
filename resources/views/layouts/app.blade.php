@@ -11,34 +11,36 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/iconos.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 80px;
+        }
+    </style>
 </head>
-<body>
+<body >
     <div id="app">
-        <nav class="navbar navbar-expand-md bg-faded">
+        <nav class="navbar navbar-expand-md bg-dark menu">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{asset('JMAimagen.jpeg')}}" width="150px" height="50px">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="fa fa-fw fa-bars"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a href="{{action('PaginaController@info')}}" class="nav-link">Información</a> <!--Forma de crear un enlace-->
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('contacto')}}" class="nav-link">Contacto</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('obras.index')}}" class="nav-link">Obras</a><!--Forma facil de crear un enlace-->
@@ -90,7 +92,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

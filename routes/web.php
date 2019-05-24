@@ -33,7 +33,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');// HomeController es la clase @index es la funcion
 Route::resource('materiales', 'MaterialController')->parameters(['materiales' => 'material']); //para poder llamar a la variable material y que no lo ponga materiale
 Route::resource('trabajadores', 'TrabajadorController')->parameters(['trabajadores' => 'trabajador']);
+//Se agrega /listado para prevenir duplicidad con ruta para funcionario.store que también utiliza POST
+Route::match(['GET', 'POST'], 'trabajadores', 'TrabajadorController@index')->name('trabajadores.index');
+
 Route::resource('departamentos', 'DepartamentoController');
+
 //->middleware('auth'); 	SE USA PARA QUE NO PUEDA ENTRAR A MENOS QUE ESTE REGISTRADO
 Route::post('obras/elimina-trabajador/{obra}', 'ObrasController@eliminaTrabajador')->name('obras.eliminaTrabajador');
 Route::resource('obras', 'ObrasController');
@@ -42,8 +46,9 @@ Route::resource('obras', 'ObrasController');
 Route::resource('archivo', 'ArchivoController', ['except' => ['create', 'edit', 'update']]);
 
 
-
-
+//Rutas para envío de correo electrónico de seguimiento
+Route::get('seguimiento/lista-trabajadores', 'MailSeguimientoController@listaTrabajadores');
+Route::get('seguimiento/envia-correo/{trabajador}/{obra}', 'MailSeguimientoController@enviaCorreo');
 
 
 

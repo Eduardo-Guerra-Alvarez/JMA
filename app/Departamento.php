@@ -10,4 +10,9 @@ class Departamento extends Model
     	return $this->hasMany(Trabajador::class);
     }
     protected $fillable = ['nombre', 'email', 'password'];
+
+    public function setNombreAttribute($nombre)
+    {
+        $this->attributes['nombre'] = strtoupper($nombre);
+    }
 }

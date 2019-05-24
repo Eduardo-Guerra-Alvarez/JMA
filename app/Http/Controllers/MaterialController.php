@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class MaterialController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+        $this->middleware('admin')->only('create', 'store', 'edit' ,'update', 'destroy', 'show');
+    }
+
     /**
      * Display a listing of the resource.
      *

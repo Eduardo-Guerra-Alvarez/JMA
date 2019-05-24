@@ -2,15 +2,7 @@
 @section('content')
 	<div>
 		<div class="col-4 offset-4">
-			@if ($errors->any())
-			    <div class="alert alert-danger">
-			        <ul>
-			            @foreach ($errors->all() as $error)
-			                <li>{{ $error }}</li>
-			            @endforeach
-			        </ul>
-			    </div>
-			@endif
+			@include('partials.error')
 			@if(isset($material))
 				<h1>Editar Materiales</h1>
 				<form action="{{ route('materiales.update', $material->id )}}" method="POST">

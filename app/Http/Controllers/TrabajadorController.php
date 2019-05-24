@@ -8,19 +8,37 @@ use Illuminate\Http\Request;
 
 class TrabajadorController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+        $this->middleware('admin')->only('create', 'store', 'edit' ,'update', 'destroy');
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        if (!empty($request->filtro_nombre)) {
+            $trabajadores = Trabajador::where('nombre', 'like', '%'.$request->filtro_nombre.'%')
+                ->orderBy('id')
+                ->paginate(6);
+        } else {
+            $trabajadores = TRabajador::paginate(6);
+        }
+
+
+
         //$trabajadores = Trabajador::all();
 
         /*
             Metodo para generar una paginacion, mostraria solo 5 trabajadores
         */
-        $trabajadores = Trabajador::paginate(5); 
+        //$trabajadores = Trabajador::paginate(5); 
 
 
         //$departamento = Departamento::find(1); //ENCONTRAR AL TRABAJADOR DEL DEPARTAMENTO 3
@@ -80,7 +98,7 @@ class TrabajadorController extends Controller
 
         return redirect()->route('trabajadores.index')
         ->with([
-                'agregado' => 'trabajador agregado',
+                'alerta' => 'trabajador agregado',
                 'alert-class' => 'alert-info',
             ]);
     }

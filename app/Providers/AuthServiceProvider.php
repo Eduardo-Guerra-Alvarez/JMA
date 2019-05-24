@@ -25,6 +25,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        /**
+         * Define gate llamado 'ediatar-obra'
+         * 
+         * La expresión solo será verdadera si el usuario es quien recibe el documento
+         * 'editar-documento' Nombre del Gate
+         * $user Es la instancia del usuario logeado
+         * $obra Es la instancia de la obra
+         * @return boolean
+         */
         Gate::define('editar-obra', function($user, $obra){
             //return $user->id == $obra->user_id;
             return $user->rol == 'admin';

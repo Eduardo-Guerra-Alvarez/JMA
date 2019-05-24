@@ -2,16 +2,7 @@
 @section('content')
 	<div>
 		<div class="col-4 offset-4">
-			@if ($errors->any())
-			    <div class="alert alert-danger">
-			        <ul>
-			            @foreach ($errors->all() as $error)
-			                <li>{{ $error }}</li>
-			            @endforeach
-			        </ul>
-			    </div>
-			@endif
-			
+			@include('partials.error')
 			@if(isset($obra))
 				<h1>Editar Obras</h1>
 				<form action="{{ route('obras.update', $obra->id )}}" method="POST">
@@ -40,15 +31,16 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="fecha_inicio">Fecha Inicio</label>
-			    <input type="date" class="form-control" name="fecha_inicio" value="{{ isset($obra) ? $obra->fecha_inicio : '' }}{{ old('fecha_inicio')}}" placeholder="Fecha de Inicio">
+			    <input type="date" class="form-control" name="fecha_inicio" value="{{ isset($obra) ? $obra->fecha_inicio->toDateString() : '' }}{{ old('fecha_inicio')}}">
+			    <!-- Se pone toDateString para el formato Carbon a la hora de editar -->
 			  </div>
 			  <div class="form-group">
 			    <label for="fecha_termino">Fecha Termino</label>
-			    <input type="date" class="form-control" name="fecha_termino" value="{{ isset($obra) ? $obra->fecha_termino : '' }}{{ old('fecha_termino')}}" placeholder="Fecha que termino">
+			    <input type="date" class="form-control" name="fecha_termino" value="{{ isset($obra) ? $obra->fecha_termino->toDateString() : '' }}{{ old('fecha_termino')}}">
+			    <!-- Se pone toDateString para el formato Carbon a la hora de editar -->
 			  </div>
 			  <button type="submit" class="btn btn-primary">Guardar</button>
 			</form>
 		</div>
 	</div>
-
 @endsection

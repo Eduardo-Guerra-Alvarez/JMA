@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Obra extends Model
 {
 	use SoftDeletes;
-    //protected $table = 'obras';
     protected $dates = ['fecha_inicio', 'fecha_termino', 'created_at', 'updated_at', 'deleted_at'];
     public function trabajadores(){
 		return $this->belongsToMany(Trabajador::class);

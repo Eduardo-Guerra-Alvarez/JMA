@@ -27,11 +27,13 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
+    /*
     protected function redirectTo()
     {
         session(['apodo' => 'Lalo']);
         return 'trabajadores'; //redireccionar a la pagina trabajadores
     }
+    */
 
     /**
      * Create a new controller instance.

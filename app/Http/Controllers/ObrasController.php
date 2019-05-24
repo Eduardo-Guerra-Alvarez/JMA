@@ -29,7 +29,7 @@ class ObrasController extends Controller
     	//Uso de Modelo
     	//$obras = Obra::all();
 
-        $obras = Obra::paginate(5);
+        $obras = Obra::paginate(10);
     	return view('obras.obrasIndex', compact('obras'));
     }
 
@@ -52,6 +52,14 @@ class ObrasController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nombre_Obra' => 'required|max:255',
+            'lugar_Obra' => 'required|max:255',
+            'fecha_inicio' => 'required|max:255',
+            'fecha_termino' => 'required|max:255'
+        ]);
+        
         $obra = Obra::create($request->except('trabajadores_id'));
         $obra->trabajadores()->attach($request->trabajadores_id);
 
@@ -62,7 +70,11 @@ class ObrasController extends Controller
         $dep->fecha_termino = $request->fecha_termino;
         $dep->save();*/
 
-        return redirect()->route('obras.index');
+        return redirect()->route('obras.index')
+        ->with([
+                'alerta' => 'Obra agregada',
+                'alert-class' => 'alert-info',
+            ]);;
     }
 
     /**
@@ -88,8 +100,6 @@ class ObrasController extends Controller
             return redirect()->back()
             ->with(['mensaje' => 'No es tu obra']);
         }
-
-
         $trabajadores = Trabajador::all();
         return view('obras.obrasForm', compact('obra', 'trabajadores'));
     }
@@ -103,6 +113,13 @@ class ObrasController extends Controller
      */
     public function update(Request $request, Obra $obra)
     {
+        $request->validate([
+            'nombre_Obra' => 'required|max:255',
+            'lugar_Obra' => 'required|max:255',
+            'fecha_inicio' => 'required',
+            'fecha_termino' => 'required'
+        ]);
+        
         //Actualiza la obra
         $obra->update($request->except('trabajadores_id'));
 
@@ -122,12 +139,20 @@ class ObrasController extends Controller
     {
         $obra->trabajadores()->detach(); //de este modelo con esta relacion quita todas las relaciones
         $obra->delete();
-        return redirect()->route('obras.index');
+        return redirect()->route('obras.index')
+        ->with([
+                'alerta' => 'Obra eliminada',
+                'alert-class' => 'alert-danger',
+            ]);;
 
     }
     public function eliminaTrabajador(Request $request, Obra $obra)
     {
         $obra->trabajadores()->detach($request->trabajador_id);
-        return redirect()->route('obras.show', $obra->id);
+        return redirect()->route('obras.show', $obra->id)
+        ->with([
+                'alerta' => 'Trabajador eliminado',
+                'alert-class' => 'alert-danger',
+            ]);;
     }
 }

@@ -2,21 +2,22 @@
 @section('content')
 
 <div class="container">
-  <div class="row">
-  	<div class="col">
-    </div>
-    <div class="col">
-      <h1 >Materiales</h1>
-    </div>
-    <div class="col">
-      <a href="{{ route('materiales.create')}}" class="btn btn-outline-primary">Agregar Material</a>
-    </div>
-  </div>
+	  <div class="row">
+	    <div class="col-5 offset-5">
+	      <h1 >Materiales</h1>
+	  </div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-4 offset-8">
+			<a href="{{ route('materiales.create')}}" class="btn btn-outline-primary mb-2">Agregar Material</a>
+		</div>
+	</div>
 </div>
 <div class="row">
-	<div class="col-8 offset-2">
+	<div class="col-6 offset-3">
 		@include('partials.mensajes')
-		{{ $materiales->links() }}
 		<table class="table ">
 			<thead class="table-dark">
 				<tr >
@@ -36,7 +37,7 @@
 						<td>{{ $dep->precio }}</td>
 						<td>{{ $dep->cantidad }}</td>
 						<td>
-							<a href="{{route('materiales.show', $dep->id)}}">Detalles</a>
+							<a href="{{route('materiales.show', $dep->id)}}" class="btn btn-sm btn-dark">Detalles</a>
 						</td>
 					</tr>
 					@endforeach

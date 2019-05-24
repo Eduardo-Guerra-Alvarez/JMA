@@ -2,15 +2,7 @@
 @section('content')
 	<div>
 		<div class="col-4 offset-4">
-				@if ($errors->any())
-			    <div class="alert alert-danger">
-			        <ul>
-			            @foreach ($errors->all() as $error)
-			                <li>{{ $error }}</li>
-			            @endforeach
-			        </ul>
-			    </div>
-			@endif
+			@include('partials.error')
 			@if(isset($departamento))
 				<h1>Editar Departamento</h1>
 				<form action="{{ route('departamentos.update', $departamento->id )}}" method="POST">
@@ -22,7 +14,7 @@
 				@csrf
 			  <div class="form-group">
 			    <label for="nombre">Departamento</label>
-			    <input type="text" class="form-control" name="nombre" value="{{ isset($departamento) ? $departamento->nombre : '' }} {{ old('nombre') }}" placeholder="Nombre del Departamento">
+			    <input type="text" class="form-control" name="nombre" value="{{ isset($departamento) ? $departamento->nombre : '' }}{{ old('nombre') }}" placeholder="Nombre del Departamento">
 			    @if ($errors->has('nombre'))
                     <div class="alert alert-danger" role="alert">
                             <strong>{{ $errors->first('nombre') }}</strong>

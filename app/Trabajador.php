@@ -21,7 +21,7 @@ class Trabajador extends Model
 	}
 	protected $fillable = ['nombre', 'departamento_id', 'domicilio', 'email', 'rfc'];
 
-	//Convertir los nombres del trabajador en Mayusculas
+	//Convertir los RFC del trabajador en Mayusculas
 	//Con get Obtiene los datos y los transforma
 
 	public function getRfcAttribute($rfc)

@@ -51,13 +51,6 @@ body {
     
 }
 
-li > a{
-    color: black; 
-}
-li > a:hover{
-    color: white;
-    background-color: gray;
-}
 .m-b-md {
     margin-bottom: 30px;
 }

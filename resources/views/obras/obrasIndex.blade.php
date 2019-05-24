@@ -1,10 +1,22 @@
 @extends('layouts.app')
-
 @section('content')
-	<h1 class="offset-5">Obras</h1>
+<div class="container">
+  <div class="row">
+    <div class="col offset-5">
+      <h1>Obras</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-3 offset-9">
+			<a href="{{ route('obras.create')}}" class="btn btn-outline-primary mb-2"> Agregar Obras</a>
+		</div>
+	</div>
+</div>
 	<div class="row">
 		<div class="col-8 offset-2">
-			{{ $obras->links() }}
+			@include('partials.mensajes')
 			<table class="table ">
 				<thead class="table-dark">
 					<tr >
@@ -38,8 +50,14 @@
 				</tbody>
 			</table>
 			{{ $obras->links() }}
-			<a href="{{ route('obras.create')}}" class="btn btn-outline-primary"> Agregar Obras</a>
 		</div>
 	</div>
+<div class="container">
+	<div class="row">
+		<div class="col offset-1">
+			{{ $obras->links() }}
+		</div>
+	</div>
+</div>
 	
 @endsection

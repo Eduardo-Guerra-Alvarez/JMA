@@ -15,8 +15,9 @@ class Administrador
      */
     public function handle($request, Closure $next)
     {
-        if (\Auth::user()->rol != 'admin') {
-            return redirect()->back()->with(['mensaje'=>'No tienes permisos para esta seccion']);
+        if(\Auth::user()->rol != 'admin') {
+            return redirect()->back()
+                ->with(['alerta' => 'Sin permiso']);
         }
         return $next($request);
     }
