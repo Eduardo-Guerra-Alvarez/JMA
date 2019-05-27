@@ -28,7 +28,7 @@ class TrabajadorController extends Controller
                 ->orderBy('id')
                 ->paginate(6);
         } else {
-            $trabajadores = TRabajador::paginate(6);
+            $trabajadores = Trabajador::paginate(6);
         }
 
 
@@ -142,7 +142,11 @@ class TrabajadorController extends Controller
             'rfc' => 'required|max:255'
         ]);
         $trabajador->update($request->all());
-        return redirect()->route('trabajadores.index');
+        return redirect()->route('trabajadores.index')
+        ->with([
+                'alerta' => 'Trabajador editado',
+                'alert-class' => 'alert-warning',
+            ]);
     }
 
     /**

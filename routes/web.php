@@ -34,7 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');// HomeController es l
 Route::resource('materiales', 'MaterialController')->parameters(['materiales' => 'material']); //para poder llamar a la variable material y que no lo ponga materiale
 Route::resource('trabajadores', 'TrabajadorController')->parameters(['trabajadores' => 'trabajador']);
 //Se agrega /listado para prevenir duplicidad con ruta para funcionario.store que también utiliza POST
-Route::match(['GET', 'POST'], 'trabajadores', 'TrabajadorController@index')->name('trabajadores.index');
+//Route::match(['GET', 'POST'], '/trabajadores/listado', 'TrabajadorController@index')->name('trabajadores.index');
 
 Route::resource('departamentos', 'DepartamentoController');
 
